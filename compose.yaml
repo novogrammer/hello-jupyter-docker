@@ -1,0 +1,14 @@
+
+version: '3'
+services:
+  jupyterlab:
+    build: .
+    # image: jupyter/tensorflow-notebook:2023-09-16
+    # user: root
+    # environment:
+    #   - GRANT_SUDO=yes
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./work:/home/jovyan/work
+    command: start-notebook.sh --NotebookApp.token=''
