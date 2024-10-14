@@ -1,8 +1,8 @@
-FROM jupyter/tensorflow-notebook:2023-09-16
+FROM tensorflow/tensorflow:2.17.0-jupyter
 
 # APTパッケージのインストール
-# root権限に切り替え
-USER root
+# # root権限に切り替え
+# USER root
 RUN apt-get update && apt-get install -y \
     sl \
     && apt-get clean \
@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y \
 
 # 必要なPythonパッケージをpipでインストール
 RUN pip install --upgrade pip
-# RUN pip install mediapipe-model-maker
+RUN pip install mediapipe-model-maker
 
-# ユーザー権限に戻す
-USER $NB_USER
+# # ユーザー権限に戻す
+# USER $NB_USER
